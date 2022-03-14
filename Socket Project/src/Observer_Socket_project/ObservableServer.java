@@ -5,13 +5,11 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ObservableServer implements Observable{
 
     private final ServerSocket serverSocket;
     public static ArrayList<ReadWriteHandler> readWriteHandlerArrayList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
 
 
     public ObservableServer(ServerSocket serverSocket) {

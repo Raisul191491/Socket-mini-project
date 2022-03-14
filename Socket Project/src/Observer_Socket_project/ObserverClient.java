@@ -1,8 +1,5 @@
 package Observer_Socket_project;
 
-import Client.Client;
-
-import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

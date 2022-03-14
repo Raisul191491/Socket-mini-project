@@ -47,8 +47,11 @@ public class ReadWriteHandler implements Runnable, Observable{
     public void notifyAll(String message) throws IOException {
         for (int i = 0; i< ObservableServer.readWriteHandlerArrayList.size(); i++){
             ReadWriteHandler name = ObservableServer.readWriteHandlerArrayList.get(i);
-            if (!name.clientUserName.equalsIgnoreCase(this.clientUserName)) {
+            if (!name.clientUserName.equalsIgnoreCase(this.clientUserName) && !name.socket.isClosed()) {
                 name.dataOutputStream.writeUTF(message);
+            }
+            if(name.socket.isClosed()){
+                ObservableServer.readWriteHandlerArrayList.remove(name);
             }
         }
     }
